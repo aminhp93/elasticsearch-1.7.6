@@ -1,0 +1,284 @@
+[2017-10-08 11:18:47,538][INFO ][node                     ] [Selene] version[1.7.6], pid[42407], build[c730b59/2016-11-18T15:21:16Z]
+[2017-10-08 11:18:47,539][INFO ][node                     ] [Selene] initializing ...
+[2017-10-08 11:18:47,647][INFO ][plugins                  ] [Selene] loaded [], sites []
+[2017-10-08 11:18:47,704][INFO ][env                      ] [Selene] using [1] data paths, mounts [[/ (/dev/disk1)]], net usable_space [64.6gb], net total_space [111.8gb], types [hfs]
+[2017-10-08 11:18:50,427][INFO ][node                     ] [Selene] initialized
+[2017-10-08 11:18:50,427][INFO ][node                     ] [Selene] starting ...
+[2017-10-08 11:18:50,531][INFO ][transport                ] [Selene] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.240:9300]}
+[2017-10-08 11:18:50,558][INFO ][discovery                ] [Selene] elasticsearch/h8YYyndjSwa7M5YhceaKWQ
+[2017-10-08 11:18:54,353][INFO ][cluster.service          ] [Selene] new_master [Selene][h8YYyndjSwa7M5YhceaKWQ][myhost.local][inet[/192.168.1.240:9300]], reason: zen-disco-join (elected_as_master)
+[2017-10-08 11:18:54,376][INFO ][http                     ] [Selene] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.240:9200]}
+[2017-10-08 11:18:54,376][INFO ][node                     ] [Selene] started
+[2017-10-08 11:18:54,422][INFO ][gateway                  ] [Selene] recovered [2] indices into cluster_state
+[2017-10-08 11:19:50,005][DEBUG][action.search.type       ] [Selene] [haystack][3], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1eb758d2] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0, "size": 20}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,005][DEBUG][action.search.type       ] [Selene] [haystack][0], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1eb758d2] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0, "size": 20}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,005][DEBUG][action.search.type       ] [Selene] [haystack][4], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1eb758d2]
+org.elasticsearch.search.SearchParseException: [haystack][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0, "size": 20}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,009][DEBUG][action.search.type       ] [Selene] All shards failed for phase: [query]
+org.elasticsearch.search.SearchParseException: [haystack][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0, "size": 20}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,005][DEBUG][action.search.type       ] [Selene] [haystack][2], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1eb758d2] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0, "size": 20}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,005][DEBUG][action.search.type       ] [Selene] [haystack][1], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1eb758d2] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0, "size": 20}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,036][DEBUG][action.search.type       ] [Selene] [haystack][2], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@381be54] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,037][DEBUG][action.search.type       ] [Selene] [haystack][3], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@381be54]
+org.elasticsearch.search.SearchParseException: [haystack][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,038][DEBUG][action.search.type       ] [Selene] All shards failed for phase: [query]
+org.elasticsearch.search.SearchParseException: [haystack][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,037][DEBUG][action.search.type       ] [Selene] [haystack][1], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@381be54] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,037][DEBUG][action.search.type       ] [Selene] [haystack][4], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@381be54] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:19:50,036][DEBUG][action.search.type       ] [Selene] [haystack][0], node[h8YYyndjSwa7M5YhceaKWQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@381be54] lastShard [true]
+org.elasticsearch.search.SearchParseException: [haystack][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query": {"bool": {"query": {"query_string": {"default_field": "text", "default_operator": "AND", "query": "(title)", "analyze_wildcard": true, "auto_generate_phrase_queries": true, "fuzzy_min_sim": 0.5, "fuzzy_max_expansions": 50}}, "filter": {"terms": {"django_ct": ["blog.note"]}}}}, "from": 0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:747)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:572)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:544)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:306)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [haystack] [bool] query does not support [query]
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:88)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:307)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:731)
+	... 9 more
+[2017-10-08 11:27:55,914][INFO ][node                     ] [Selene] stopping ...
+[2017-10-08 11:27:55,946][INFO ][node                     ] [Selene] stopped
+[2017-10-08 11:27:55,946][INFO ][node                     ] [Selene] closing ...
+[2017-10-08 11:27:55,953][INFO ][node                     ] [Selene] closed
+[2017-10-08 11:28:00,375][INFO ][node                     ] [Brian Falsworth] version[1.7.6], pid[42801], build[c730b59/2016-11-18T15:21:16Z]
+[2017-10-08 11:28:00,376][INFO ][node                     ] [Brian Falsworth] initializing ...
+[2017-10-08 11:28:00,457][INFO ][plugins                  ] [Brian Falsworth] loaded [], sites []
+[2017-10-08 11:28:00,491][INFO ][env                      ] [Brian Falsworth] using [1] data paths, mounts [[/ (/dev/disk1)]], net usable_space [64.8gb], net total_space [111.8gb], types [hfs]
+[2017-10-08 11:28:02,583][INFO ][node                     ] [Brian Falsworth] initialized
+[2017-10-08 11:28:02,583][INFO ][node                     ] [Brian Falsworth] starting ...
+[2017-10-08 11:28:02,660][INFO ][transport                ] [Brian Falsworth] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.240:9300]}
+[2017-10-08 11:28:02,683][INFO ][discovery                ] [Brian Falsworth] elasticsearch/ChrLZyRCT9aNLE7aTU8MFw
+[2017-10-08 11:28:06,467][INFO ][cluster.service          ] [Brian Falsworth] new_master [Brian Falsworth][ChrLZyRCT9aNLE7aTU8MFw][myhost.local][inet[/192.168.1.240:9300]], reason: zen-disco-join (elected_as_master)
+[2017-10-08 11:28:06,487][INFO ][http                     ] [Brian Falsworth] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.240:9200]}
+[2017-10-08 11:28:06,487][INFO ][node                     ] [Brian Falsworth] started
+[2017-10-08 11:28:06,531][INFO ][gateway                  ] [Brian Falsworth] recovered [2] indices into cluster_state
+[2017-10-08 11:37:51,827][INFO ][node                     ] [Brian Falsworth] stopping ...
+[2017-10-08 11:37:51,856][INFO ][node                     ] [Brian Falsworth] stopped
+[2017-10-08 11:37:51,856][INFO ][node                     ] [Brian Falsworth] closing ...
+[2017-10-08 11:37:51,861][INFO ][node                     ] [Brian Falsworth] closed
